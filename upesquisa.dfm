@@ -36,6 +36,5 @@ object Fpesquisa: TFpesquisa
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnColEnter = dbgrdpesqColEnter
-    OnDblClick = dbgrdpesqDblClick
   end
 end

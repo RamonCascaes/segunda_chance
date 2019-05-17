@@ -12,6 +12,8 @@ object Fcompras: TFcompras
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -36,6 +38,7 @@ object Fcompras: TFcompras
     Height = 25
     Caption = 'Adicionar ao Carrinho'
     TabOrder = 0
+    OnClick = Button1Click
   end
   object Sair: TButton
     Left = 516
@@ -107,5 +110,14 @@ object Fcompras: TFcompras
     Height = 21
     TabOrder = 7
     Text = 'Quantidade '
+  end
+  object Button2: TButton
+    Left = 444
+    Top = 8
+    Width = 147
+    Height = 25
+    Caption = 'Consultar Itens no carrinho'
+    TabOrder = 8
+    OnClick = Button2Click
   end
 end
