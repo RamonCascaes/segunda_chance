@@ -1,0 +1,10 @@
+Necessario sql server
+    Entrando no sql é só rodar esses comandos abaixos
+   
+Create Database testehiheppens
+
+Necessário configurar o component TadoConnect que se encontra na unit conexão .. 2 clicks no componete e abre-se uma tela
+--clique em build
+--Selecione ou ensira o nome do servidor .. (ip do sql server)
+--Neme de usuario e senha se ouver
+--Selecione o banco de bados que criamos anteriormente testehiheppens

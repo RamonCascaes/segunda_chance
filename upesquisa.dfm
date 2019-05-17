@@ -3,8 +3,8 @@ object Fpesquisa: TFpesquisa
   Top = 0
   BorderStyle = bsDialog
   Caption = 'Pesquisa'
-  ClientHeight = 227
-  ClientWidth = 387
+  ClientHeight = 259
+  ClientWidth = 551
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,14 +13,16 @@ object Fpesquisa: TFpesquisa
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object dbgrdpesq: TDBGrid
     Left = 0
     Top = 0
-    Width = 387
+    Width = 543
     Height = 227
-    Align = alClient
     DataSource = Form1.ds2
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -36,5 +38,23 @@ object Fpesquisa: TFpesquisa
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
     OnColEnter = dbgrdpesqColEnter
+  end
+  object Button1: TButton
+    Left = 0
+    Top = 233
+    Width = 185
+    Height = 25
+    Caption = 'Excluir item selecionado do carrinho'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 445
+    Top = 233
+    Width = 98
+    Height = 25
+    Caption = 'Finalizar pedido'
+    TabOrder = 2
+    OnClick = Button2Click
   end
 end

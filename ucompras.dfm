@@ -58,28 +58,19 @@ object Fcompras: TFcompras
     TabOrder = 2
     OnClick = pesqproClick
   end
-  object ComboBox1: TComboBox
-    Left = 135
-    Top = 12
-    Width = 162
-    Height = 21
-    TabOrder = 3
-    Text = 'Selecione um departamento'
-    OnChange = ComboBox1Change
-  end
   object edtdesci: TEdit
     Left = 64
     Top = 267
     Width = 401
     Height = 21
-    TabOrder = 4
+    TabOrder = 3
   end
   object edtvalorpro: TEdit
     Left = 64
     Top = 294
     Width = 73
     Height = 21
-    TabOrder = 5
+    TabOrder = 4
   end
   object dbgrd1: TDBGrid
     Left = 8
@@ -94,7 +85,7 @@ object Fcompras: TFcompras
     Font.Style = []
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
@@ -108,7 +99,7 @@ object Fcompras: TFcompras
     Top = 294
     Width = 145
     Height = 21
-    TabOrder = 7
+    TabOrder = 6
     Text = 'Quantidade '
   end
   object Button2: TButton
@@ -117,7 +108,7 @@ object Fcompras: TFcompras
     Width = 147
     Height = 25
     Caption = 'Consultar Itens no carrinho'
-    TabOrder = 8
+    TabOrder = 7
     OnClick = Button2Click
   end
 end

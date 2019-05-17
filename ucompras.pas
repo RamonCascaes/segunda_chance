@@ -18,7 +18,6 @@ type
     Button1: TButton;
     Sair: TButton;
     pesqpro: TButton;
-    ComboBox1: TComboBox;
     edtdesci: TEdit;
     edtvalorpro: TEdit;
     Label1: TLabel;
@@ -31,7 +30,6 @@ type
     procedure dbgrd1ColEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure dbgrd1DblClick(Sender: TObject);
-    procedure ComboBox1Change(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -41,6 +39,7 @@ type
     Crud_ : TFcrud;
   public
     { Public declarations }
+    filter : Tfilter;
     procedure resetform;
     procedure ADD_carrinho;
     procedure QuantidadeProduto;
@@ -55,7 +54,7 @@ implementation
 
 procedure TFcompras.ADD_carrinho;
 begin
-    Crud_.ADD_carrinho(0,1,1,1);
+    Crud_.ADD_carrinho(filter.codpro,filter.qtd,filter.codcli);
     ShowMessage('Adcionado com sucesso!!');
 end;
 
@@ -63,31 +62,25 @@ procedure TFcompras.Button1Click(Sender: TObject);
 begin
    if messagedlg('Deseja Adcionar esse produto ao Carrinho?',mtconfirmation,[mbyes,mbno],0)= mryes then
    begin
-     ADD_carrinho;
+       if Cmbqtdpro.ItemIndex = -1 then
+       begin
+          ShowMessage('Selecione a quatidade');
+       end
+       else
+       begin
+          filter.qtd := Strtoint(Cmbqtdpro.Text);
+          ADD_carrinho;
+       end;
    end;
 end;
 
 procedure TFcompras.Button2Click(Sender: TObject);
 var pesq : TFpesquisa;
 begin
-   Crud_.Pesquisa_carrinho(0);
+   Crud_.Pesquisa_carrinho(1);
    pesq := TFpesquisa.Create(nil);
    pesq.dbgrdpesq.Refresh;
    pesq.ShowModal;
-end;
-
-procedure TFcompras.ComboBox1Change(Sender: TObject);
-var dep : string;
-begin
-   dep := ComboBox1.Text;
-   conexao.Form1.Q.sql.Clear;
-   conexao.Form1.Q.SQL.Add('    select pro00_codigo ,  ');
-   conexao.Form1.Q.SQL.Add('           pro00_descri ,  ');
-   conexao.Form1.Q.SQL.Add('           pro00_vlrtot    ');
-   conexao.Form1.Q.SQL.Add('    from produtos          ');
-   conexao.Form1.Q.SQL.Add('    inner join departamento on dep00_codigo = pro00_coddep ');
-   conexao.Form1.Q.SQL.Add(' where dep00_descri ='''+dep+'');
-   conexao.Form1.Q.Open;
 end;
 
 procedure TFcompras.dbgrd1ColEnter(Sender: TObject);
@@ -97,6 +90,7 @@ end;
 
 procedure TFcompras.dbgrd1DblClick(Sender: TObject);
 begin
+  filter.codpro    := Strtoint( dbgrd1.columns.items[0].field.text);
   edtdesci.Text    := dbgrd1.columns.items[1].field.text;
   edtvalorpro.Text := dbgrd1.columns.items[2].field.text;
 end;
@@ -112,34 +106,14 @@ begin
 end;
 
 procedure TFcompras.FormShow(Sender: TObject);
-var dep : string;
 begin
   resetform;
-
-   conexao.Form1.Q.SQL.Add('select *from departamento');
-   conexao.Form1.Q.Open;
-
-   ComboBox1.Items.Add('Todos');
-
-   while not conexao.Form1.Q.Eof do
-   begin
-     dep := conexao.Form1.Q.FieldByName('dep00_descri').AsString;
-     ComboBox1.Items.Add(dep);
-     conexao.Form1.Q.Next;
-   end;
-   dbgrd1.CleanupInstance;
-   //FreeAndNil(conexao.Form1.Q);
 end;
 
 procedure TFcompras.pesqproClick(Sender: TObject);
 begin
-   conexao.Form1.Q.sql.Clear;
-   conexao.Form1.Q.SQL.Add('    select pro00_codigo ,  ');
-   conexao.Form1.Q.SQL.Add('           pro00_descri ,  ');
-   conexao.Form1.Q.SQL.Add('           pro00_vlrtot    ');
-   conexao.Form1.Q.SQL.Add('    from produtos          ');
-   conexao.Form1.Q.Open;
-
+   Crud_.Pesquisa_produtos;
+   dbgrd1.Columns[1].Width := 150;
    dbgrd1.Refresh;
 end;
 

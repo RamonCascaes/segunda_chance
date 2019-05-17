@@ -1,0 +1,48 @@
+unit ucupomFiscal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,conexao,ucrud;
+
+type
+  TFcupomfiscal = class(TForm)
+    Memo1: TMemo;
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Crud_ : TFcrud;
+  end;
+
+var
+  Fcupomfiscal: TFcupomfiscal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFcupomfiscal.FormCreate(Sender: TObject);
+begin
+  Crud_ := TFcrud.Create(nil);
+end;
+
+procedure TFcupomfiscal.FormDestroy(Sender: TObject);
+begin
+   Crud_.Destroy;
+end;
+
+procedure TFcupomfiscal.FormShow(Sender: TObject);
+var codigo,Produto,Valor,qtd : string;
+begin
+  conexao.Form1.Q.sql.Clear;
+
+  conexao.Form1.Q.SQL.Add(' ');
+  Memo1.Lines.Add();
+end;
+
+end.
