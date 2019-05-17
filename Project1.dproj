@@ -112,6 +112,22 @@
             <Form>Fcompras</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="ucrud.pas">
+            <Form>Fcrud</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ulogin.pas">
+            <Form>Flogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ucupomFiscal.pas">
+            <Form>Fcupomfiscal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="ucompra_realizada.pas">
+            <Form>Form4</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
