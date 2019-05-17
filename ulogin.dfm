@@ -4,62 +4,41 @@ object Flogin: TFlogin
   BorderStyle = bsSizeToolWin
   Caption = 'Sistema de compras'
   ClientHeight = 201
-  ClientWidth = 266
+  ClientWidth = 285
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 51
-    Top = 80
-    Width = 29
-    Height = 13
-    Caption = 'Login:'
-  end
-  object Label2: TLabel
-    Left = 51
-    Top = 107
-    Width = 34
-    Height = 13
-    Caption = 'Senha:'
-  end
-  object edtlogin: TEdit
-    Left = 86
-    Top = 72
-    Width = 121
-    Height = 21
-    TabOrder = 0
-    Text = 'master'
-  end
-  object edtsenha: TEdit
-    Left = 86
-    Top = 99
-    Width = 121
-    Height = 21
-    TabOrder = 1
-    Text = '123456'
-  end
-  object Button1: TButton
-    Left = 32
-    Top = 136
-    Width = 75
-    Height = 25
-    Caption = 'Entrar'
-    TabOrder = 2
-    OnClick = Button1Click
-  end
-  object Button2: TButton
-    Left = 152
-    Top = 136
-    Width = 75
-    Height = 25
-    Caption = 'Sair'
-    TabOrder = 3
+  object MainMenu1: TMainMenu
+    Left = 176
+    Top = 16
+    object Entrar1: TMenuItem
+      Caption = 'Entrar'
+      OnClick = Entrar1Click
+    end
+    object Consultar1: TMenuItem
+      Caption = 'Consultar'
+      object Compras1: TMenuItem
+        Caption = 'Compras feitas'
+        OnClick = Compras1Click
+      end
+      object Carrinho1: TMenuItem
+        Caption = 'Carrinho'
+        OnClick = Carrinho1Click
+      end
+    end
+    object Sair1: TMenuItem
+      Caption = 'Sair'
+      OnClick = Sair1Click
+    end
   end
 end

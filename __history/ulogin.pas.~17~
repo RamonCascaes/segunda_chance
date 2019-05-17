@@ -1,0 +1,58 @@
+unit ulogin;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,conexao,ucompras, Vcl.Menus,
+  upesquisa;
+
+type
+  TFlogin = class(TForm)
+    MainMenu1: TMainMenu;
+    Entrar1: TMenuItem;
+    Consultar1: TMenuItem;
+    Compras1: TMenuItem;
+    Carrinho1: TMenuItem;
+    Sair1: TMenuItem;
+    procedure Sair1Click(Sender: TObject);
+    procedure Entrar1Click(Sender: TObject);
+    procedure Carrinho1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Flogin: TFlogin;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFlogin.Carrinho1Click(Sender: TObject);
+var pesq : TFpesquisa;
+begin
+   Crud_.Pesquisa_carrinho(1);
+   pesq := TFpesquisa.Create(nil);
+   pesq.dbgrdpesq.Refresh;
+   pesq.ShowModal;
+end;
+
+procedure TFlogin.Entrar1Click(Sender: TObject);
+var ent : TFcompras ;
+begin
+    ent  := TFcompras.Create(nil);
+    ent.filter.codcli := 1;
+    ent.ShowModal;
+    ent.Destroy;
+    Self.Close;
+end;
+
+procedure TFlogin.Sair1Click(Sender: TObject);
+begin
+  close;
+end;
+
+end.

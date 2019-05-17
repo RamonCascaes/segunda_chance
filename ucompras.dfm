@@ -2,7 +2,7 @@ object Fcompras: TFcompras
   Left = 0
   Top = 0
   Caption = 'Carrinho de compras'
-  ClientHeight = 374
+  ClientHeight = 303
   ClientWidth = 599
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,23 +17,9 @@ object Fcompras: TFcompras
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 8
-    Top = 270
-    Width = 50
-    Height = 13
-    Caption = 'Descri'#231#227'o:'
-  end
-  object Label2: TLabel
-    Left = 8
-    Top = 298
-    Width = 24
-    Height = 13
-    Caption = 'Valor'
-  end
   object Button1: TButton
-    Left = 8
-    Top = 341
+    Left = 167
+    Top = 267
     Width = 114
     Height = 25
     Caption = 'Adicionar ao Carrinho'
@@ -42,7 +28,7 @@ object Fcompras: TFcompras
   end
   object Sair: TButton
     Left = 516
-    Top = 341
+    Top = 267
     Width = 75
     Height = 25
     Caption = 'Sair'
@@ -58,20 +44,6 @@ object Fcompras: TFcompras
     TabOrder = 2
     OnClick = pesqproClick
   end
-  object edtdesci: TEdit
-    Left = 64
-    Top = 267
-    Width = 401
-    Height = 21
-    TabOrder = 3
-  end
-  object edtvalorpro: TEdit
-    Left = 64
-    Top = 294
-    Width = 73
-    Height = 21
-    TabOrder = 4
-  end
   object dbgrd1: TDBGrid
     Left = 8
     Top = 48
@@ -85,7 +57,7 @@ object Fcompras: TFcompras
     Font.Style = []
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
@@ -95,11 +67,11 @@ object Fcompras: TFcompras
     OnDblClick = dbgrd1DblClick
   end
   object Cmbqtdpro: TComboBox
-    Left = 320
-    Top = 294
+    Left = 16
+    Top = 267
     Width = 145
     Height = 21
-    TabOrder = 6
+    TabOrder = 4
     Text = 'Quantidade '
   end
   object Button2: TButton
@@ -108,7 +80,7 @@ object Fcompras: TFcompras
     Width = 147
     Height = 25
     Caption = 'Consultar Itens no carrinho'
-    TabOrder = 7
+    TabOrder = 5
     OnClick = Button2Click
   end
 end

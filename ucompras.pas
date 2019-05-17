@@ -18,10 +18,6 @@ type
     Button1: TButton;
     Sair: TButton;
     pesqpro: TButton;
-    edtdesci: TEdit;
-    edtvalorpro: TEdit;
-    Label1: TLabel;
-    Label2: TLabel;
     dbgrd1: TDBGrid;
     Cmbqtdpro: TComboBox;
     Button2: TButton;
@@ -69,6 +65,7 @@ begin
        else
        begin
           filter.qtd := Strtoint(Cmbqtdpro.Text);
+          filter.codpro    := Strtoint( dbgrd1.columns.items[0].field.text);
           ADD_carrinho;
        end;
    end;
@@ -91,8 +88,6 @@ end;
 procedure TFcompras.dbgrd1DblClick(Sender: TObject);
 begin
   filter.codpro    := Strtoint( dbgrd1.columns.items[0].field.text);
-  edtdesci.Text    := dbgrd1.columns.items[1].field.text;
-  edtvalorpro.Text := dbgrd1.columns.items[2].field.text;
 end;
 
 procedure TFcompras.FormCreate(Sender: TObject);

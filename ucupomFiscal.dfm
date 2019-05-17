@@ -4,7 +4,7 @@ object Fcupomfiscal: TFcupomfiscal
   BorderStyle = bsSizeToolWin
   Caption = 'Cupom'
   ClientHeight = 402
-  ClientWidth = 299
+  ClientWidth = 412
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -50,5 +50,23 @@ object Fcupomfiscal: TFcupomfiscal
     ExplicitLeft = 8
     ExplicitTop = -1
     ExplicitHeight = 394
+  end
+  object Button1: TButton
+    Left = 303
+    Top = 8
+    Width = 101
+    Height = 25
+    Caption = 'Finalizar compra'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object Button2: TButton
+    Left = 303
+    Top = 369
+    Width = 101
+    Height = 25
+    Caption = 'Sair'
+    TabOrder = 2
+    OnClick = Button2Click
   end
 end

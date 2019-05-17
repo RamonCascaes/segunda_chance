@@ -16,6 +16,8 @@ type
     procedure Pesquisa_carrinho(codcli :Integer);
     procedure Pesquisa_produtos;
     procedure Excluir_produto(codpro : integer);
+    procedure Finalizar_compra;
+    procedure Compas_feitas;
   end;
 
 var
@@ -45,10 +47,31 @@ begin
    conexao.Form1.Q.ExecSQL;
 end;
 
+procedure TFcrud.Compas_feitas;
+begin
+   conexao.Form1.Q.sql.Clear;
+   conexao.Form1.Q.SQL.Add(' select *from Compras ');
+   conexao.Form1.Q.Open;
+end;
+
 procedure TFcrud.Excluir_produto(codpro : integer);
 begin
   conexao.Form1.Q.sql.Clear;
   conexao.Form1.Q.SQL.Add('delete carrinho where car00_codpro  =' +Inttostr(codpro));
+  conexao.Form1.Q.ExecSQL;
+end;
+
+procedure TFcrud.Finalizar_compra;
+begin
+  conexao.Form1.Q.sql.Clear;
+  conexao.Form1.Q.SQL.Add('  insert into Compras     ');
+  conexao.Form1.Q.SQL.Add('  select *from carrinho   ');
+  conexao.Form1.Q.SQL.Add('  where car00_codcli = 1  ');
+  conexao.Form1.Q.ExecSQL;
+
+  conexao.Form1.Q.sql.Clear;
+  conexao.Form1.Q.SQL.Add('  delete carrinho         ');
+  conexao.Form1.Q.SQL.Add('  where car00_codcli = 1  ');
   conexao.Form1.Q.ExecSQL;
 end;
 

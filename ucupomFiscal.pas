@@ -9,9 +9,13 @@ uses
 type
   TFcupomfiscal = class(TForm)
     Memo1: TMemo;
+    Button1: TButton;
+    Button2: TButton;
     procedure FormShow(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,6 +29,18 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFcupomfiscal.Button1Click(Sender: TObject);
+begin
+    Crud_.Finalizar_compra;
+    ShowMessage('Finalização de compra com sucesso');
+    Close;
+end;
+
+procedure TFcupomfiscal.Button2Click(Sender: TObject);
+begin
+  Close;
+end;
 
 procedure TFcupomfiscal.FormCreate(Sender: TObject);
 begin

@@ -1,7 +1,86 @@
 Necessario sql server
     Entrando no sql é só rodar esses comandos abaixos
    
-Create Database testehiheppens
+Create Database testehiheppens;
+go
+
+use testehihappens
+go
+
+
+
+create table cliente(
+ cli00_codigo int,
+ cli00_descri varchar(100),
+ cli00_cfp    varchar(20)   
+)
+
+create table produtos(
+   pro00_codigo int identity(1,1),
+   pro00_descri varchar(100),
+   pro00_qtd    numeric(15,6),
+   pro00_vlrtot numeric(15,6),
+   pro00_coddep int
+   )
+
+
+create table Carrinho(
+       car00_codigo int identity(1,1),
+	     car00_codpro int,
+	     car00_qtdpro int,
+	     car00_codcli int
+	   )
+
+Create table Compras (
+						 com00_codigo int ,
+						 com00_codpro int ,
+						 com00_qtdpro int ,
+						 com00_codcli int 
+					    )
+
+
+insert into produtos(
+	                    pro00_descri,
+						pro00_qtd,
+						pro00_vlrtot,
+						pro00_coddep
+						)
+						values 
+						(
+						'Toalha',
+						100,
+						2.55,
+						2
+						)
+
+insert into produtos(
+	                    pro00_descri,
+						pro00_qtd,
+						pro00_vlrtot,
+						pro00_coddep
+						)
+						values 
+						(
+						'Bolacha nikito',
+						100,
+						2.55,
+						2
+						)
+
+insert into produtos(
+	                    pro00_descri,
+						pro00_qtd,
+						pro00_vlrtot,
+						pro00_coddep
+						)
+						values 
+						(
+						'Bolacha Richester',
+						100,
+						2.55,
+						2
+						)
+
 
 Necessário configurar o component TadoConnect que se encontra na unit conexão .. 2 clicks no componete e abre-se uma tela
 --clique em build
