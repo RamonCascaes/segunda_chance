@@ -1,0 +1,37 @@
+unit upesquisa;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.DBGrids,conexao;
+
+type
+  TFpesquisa = class(TForm)
+    dbgrd1: TDBGrid;
+    procedure dbgrd1ColEnter(Sender: TObject);
+    procedure dbgrd1DblClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Fpesquisa: TFpesquisa;
+
+implementation
+{$R *.dfm}
+
+procedure TFpesquisa.dbgrd1ColEnter(Sender: TObject);
+begin
+dbgrd1.Options := dbgrd1.Options - [dgEditing]
+end;
+
+procedure TFpesquisa.dbgrd1DblClick(Sender: TObject);
+begin
+  edt1.Text := dbgrd1.columns.items[0].field.text;
+  edt2.Text := dbgrd1.columns.items[1].field.text;
+end;
+
+end.

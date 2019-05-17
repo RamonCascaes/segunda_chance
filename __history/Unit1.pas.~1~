@@ -1,0 +1,48 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.StdCtrls,
+  Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TForm1 = class(TForm)
+    con1: TADOConnection;
+    ds1: TADODataSet;
+    Q: TADOQuery;
+    ds2: TDataSource;
+    edt1: TEdit;
+    edt2: TEdit;
+    btn1: TButton;
+    btn2: TButton;
+    procedure btn1Click(Sender: TObject);
+    procedure btn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btn1Click(Sender: TObject);
+begin
+  Q.SQL.Clear;
+  //Q.SQL.Add('declare @nome int; set @nome = %d',[edt1.Text]);
+  Q.SQL.Add('insert into teste10 (nome,descri) values(1,''teste'')');
+  Q.ExecSQL;
+end;
+
+procedure TForm1.btn2Click(Sender: TObject);
+begin
+  Q.SQL.Add('UPDATE tb_cliente SET nome=:nome WHERE codigo = '+''''+StrToInt(codigo.Text)+''''+'');
+end;
+
+end.

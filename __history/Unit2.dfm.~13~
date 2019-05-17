@@ -1,0 +1,88 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 307
+  ClientWidth = 373
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object edt1: TEdit
+    Left = 24
+    Top = 8
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object edt2: TEdit
+    Left = 24
+    Top = 35
+    Width = 305
+    Height = 21
+    TabOrder = 1
+  end
+  object btn1: TButton
+    Left = 24
+    Top = 62
+    Width = 75
+    Height = 25
+    Caption = 'ADD'
+    TabOrder = 2
+    OnClick = btn1Click
+  end
+  object btn2: TButton
+    Left = 105
+    Top = 62
+    Width = 75
+    Height = 25
+    Caption = 'Update'
+    TabOrder = 3
+    OnClick = btn2Click
+  end
+  object btn3: TButton
+    Left = 254
+    Top = 62
+    Width = 75
+    Height = 25
+    Caption = 'pesq'
+    TabOrder = 4
+    OnClick = btn3Click
+  end
+  object dbgrd1: TDBGrid
+    Left = 0
+    Top = 120
+    Width = 368
+    Height = 179
+    DataSource = Form1.ds2
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+    ParentFont = False
+    TabOrder = 5
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    OnColEnter = dbgrd1ColEnter
+    OnDblClick = dbgrd1DblClick
+  end
+  object btn4: TButton
+    Left = 293
+    Top = 93
+    Width = 75
+    Height = 25
+    Caption = 'pesq todos'
+    TabOrder = 6
+    OnClick = btn4Click
+  end
+end
